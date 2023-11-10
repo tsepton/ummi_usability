@@ -3,7 +3,7 @@ using System.Numerics;
 public class MMInterfaceExample : MMInterface
 {
 
-    public void Start()
+    public override void Start()
     {
         Interfaces.Add(typeof(PutThatThereInterface));
     }
@@ -11,7 +11,8 @@ public class MMInterfaceExample : MMInterface
     public static class PutThatThereInterface
     {
         [UserAction("Create a cube there")]
-        public static void CreateCube(Vector3 there) {
+        public static void CreateCube(Vector3 there)
+        {
             Console.WriteLine($"Adding a cube over {there}...");
         }
 
