@@ -12,7 +12,6 @@ public class Program
     static void Main()
     {
         var interfaces = new List<Type>();
-        // interfaces.Add(typeof(MMInterfaceExample.PutThatThereInterface));
 
         var mminterfaces = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(s => s.GetTypes())
@@ -51,10 +50,6 @@ public class Program
 
     public AttributeParser(Type[] classes)
     {
-        //   var extractedMethods = TypeCache
-        // .GetMethodsWithAttribute<UserAction>()
-        // .Where(method => classes.Contains(method.DeclaringType));
-
         var extractedMethods = new List<MethodInfo>();
         foreach (var item in classes)
         {
