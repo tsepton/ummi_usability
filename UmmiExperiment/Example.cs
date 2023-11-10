@@ -1,15 +1,19 @@
-public class Experiment : MMInterface
+using System.Numerics;
+
+public class MMInterfaceExample : MMInterface
 {
 
     public void Start()
     {
-        Interfaces.Add(typeof(TestInterface));
+        Interfaces.Add(typeof(PutThatThereInterface));
     }
 
-    public static class TestInterface
+    public static class PutThatThereInterface
     {
-        [UserAction("Hi")]
-        public static void Hi() { }
+        [UserAction("Create a cube there")]
+        public static void CreateCube(Vector3 there) {
+            Console.WriteLine($"Adding a cube over {there}...");
+        }
 
     }
 
