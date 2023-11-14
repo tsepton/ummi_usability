@@ -4,7 +4,13 @@ This repository is part of the [Ummi](https://github.com/tsepton/ummi) project.
 
 ## Getting started
 ### Requirements
-- [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/) 
+- [.NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/) (version 7)
+
+Just run the following if you are on linux (and uses apt): 
+```bash
+sudo apt update && sudo apt install dotnet7
+```
+
 
 ### Environment 
 Use the following:
