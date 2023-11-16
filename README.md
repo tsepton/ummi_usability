@@ -31,6 +31,11 @@ dotnet run
 With Ummi, a multimodal interface is decomposed as sets of user actions.
 As Ummi uses the Object-Oriented paradigm in order to model and abstract multimodal interaction, you can think of any multimodal interface as being a class, while multimodal user actions are methods.   
 
+With Ummi, you don't need to think about specifying the modalities you want to use, and how to handle their data, while writing a multimodal interface. 
+You state the type of data you need as parameter for your user actions, and Ummi handles the fusion.
+
+For a class to be a usable as a parameter type, you need at least one modality processor to instantiate that class based on the modality itself. 
+
 ### Writing multimodal interfaces
 
 Creating any multimodal interface with Ummi begins by declaring a C# class that implements the `MMInterface`.
@@ -46,7 +51,7 @@ The following code illustrates how you can use Ummi to recreate Bolt's put-that-
 public class MMInterfaceExample : MMInterface {
 
     public override void Start() {
-        Actions.Add(typeof(PutThatThereActions));
+        UserActions.Add(typeof(PutThatThereActions));
     }
 
     public static class PutThatThereActions {
