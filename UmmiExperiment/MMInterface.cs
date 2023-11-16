@@ -1,6 +1,6 @@
-public class MMInterface
+// this is a workaround to force user to have to 
+public abstract class MMInterface 
 {
     public List<Type> Interfaces = new();
-    virtual public void Start() { }
+    public abstract void Start();
 }
-

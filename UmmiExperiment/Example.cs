@@ -2,7 +2,6 @@ using System.Numerics;
 
 public class MMInterfaceExample : MMInterface
 {
-
     public override void Start()
     {
         Interfaces.Add(typeof(PutThatThereInterface));

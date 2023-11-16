@@ -15,7 +15,7 @@ public class Program
 
         var mminterfaces = AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(s => s.GetTypes())
-            .Where(typeof(MMInterface).IsAssignableFrom)
+            .Where(type => typeof(MMInterface).IsAssignableFrom(type) && type != typeof(MMInterface))
             .Select(c => Activator.CreateInstance(c) as MMInterface);
 
         foreach (var item in mminterfaces)
@@ -25,9 +25,7 @@ public class Program
             interfaces.AddRange(item.Interfaces);
         }
 
-
         var parser = new AttributeParser(interfaces.ToArray());
-
         Console.WriteLine($"Number of registered user action: {parser.Methods.Length}");
         foreach (var item in parser.Methods)
         {
