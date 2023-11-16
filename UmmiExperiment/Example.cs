@@ -4,7 +4,7 @@ public class MMInterfaceExample : MMInterface
 {
     public override void Start()
     {
-        Interfaces.Add(typeof(PutThatThereInterface));
+        UserActions.Add(typeof(PutThatThereInterface));
     }
 
     public static class PutThatThereInterface
@@ -14,8 +14,5 @@ public class MMInterfaceExample : MMInterface
         {
             Console.WriteLine($"Adding a cube over {there}...");
         }
-
     }
-
 }
-

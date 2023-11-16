@@ -22,7 +22,7 @@ public class Program
         {
             if (item == null) continue;
             item.Start();
-            interfaces.AddRange(item.Interfaces);
+            interfaces.AddRange(item.UserActions);
         }
 
         var parser = new AttributeParser(interfaces.ToArray());
