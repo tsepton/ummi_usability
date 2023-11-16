@@ -4,10 +4,10 @@ public class MMInterfaceExample : MMInterface
 {
     public override void Start()
     {
-        UserActions.Add(typeof(PutThatThereInterface));
+        UserActions.Add(typeof(PutThatThereActions));
     }
 
-    public static class PutThatThereInterface
+    public static class PutThatThereActions
     {
         [UserAction("Create a cube there")]
         public static void CreateCube(Vector3 there)
