@@ -38,7 +38,7 @@ For a class to be a usable as a parameter type, you need at least one modality p
 
 ### Writing multimodal interfaces
 
-Creating any multimodal interface with Ummi begins by declaring a C# class that implements the `MMInterface`.
+Creating any multimodal interface with Ummi begins by declaring a C# class that implements `MMInterface`.
 
 The `MMInterface` is used to register one (or more) sets of multimodal actions that a user should be capable of performing. Each user action is grouped within a set of actions, where a set is a class that needs to be both `public` and `static`, capable of grouping as many actions as needed. Each action is written as a `public` and `static` method, and it is registered with the `UserAction` annotation. The `UserAction` annotation takes a string parameter, which represents the typical sentence you would want your user to say in order to execute the associated action.
 
@@ -98,7 +98,7 @@ Users of the applicaton should be capable of doing actions described below, thro
    - Allow users to switch the position of two items within the environment.
 
 7. **Delete an item:**
-   - Allow users to delete an item from that was previously added to the environment.
+   - Allow users to delete an item from those that were previously added to the environment.
 
 
 <!-- 6. **Add an item to user's Basket:**
@@ -112,7 +112,7 @@ Users of the applicaton should be capable of doing actions described below, thro
 
 
 ### Types at your disposal
-As you are not alone on this project, a colleague of yours will write the processors in charge of mapping modalities events to types. You can use these types freely for your Multimodal Interface. They are the following: 
+As you are not alone on this project, a colleague of yours will write the processors in charge of mapping modalities events to types. You can use these types freely for your Multimodal Interface. No other types will be emitted from the modalities processors. They are the following: 
 - `Sort`:
     - `SortByPrice` which extends `Sort`,
     - `SortByName` which extends `Sort`,
