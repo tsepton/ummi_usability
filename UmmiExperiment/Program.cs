@@ -22,7 +22,11 @@ public class Program
         {
             if (item == null) continue;
             item.Start();
-            interfaces.AddRange(item.UserActions);
+            interfaces.AddRange(
+                item.UserActions
+                    .Where(type => type.IsAbstract && type.IsSealed)
+                    .Where(type => type.IsNestedPublic || type.IsPublic)
+            );
         }
 
         var parser = new AttributeParser(interfaces.ToArray());
@@ -35,9 +39,7 @@ public class Program
 }
 
 
-
-
-; public class AttributeParser
+public class AttributeParser
 {
     private readonly RegisteredMMIMethod[] _methods;
 
@@ -51,16 +53,20 @@ public class Program
         var extractedMethods = new List<MethodInfo>();
         foreach (var item in classes)
         {
-            extractedMethods.AddRange(item.GetMethods().Where(method => method.GetCustomAttributes<UserAction>() != null));
+            var filteredM = item.GetMethods()
+                .Where(method => method.GetCustomAttributes<UserAction>() != null)
+                .Where(method => method.IsPublic)
+                .Where(method => method.ReturnType == typeof(void))
+                .Where(method => method.GetParameters()
+                    .All(p => typeof(TypesForExperiment).IsAssignableFrom(p.ParameterType))
+                );
+
+
+            extractedMethods.AddRange(filteredM);
         }
 
         List<RegisteredMMIMethod> methods = new List<RegisteredMMIMethod>();
-        var x = extractedMethods
-          .Where(m => !m.IsPrivate)
-          .Where(m => m.ReturnType == typeof(void))
-          .Where(m => !m.IsAbstract)
-          .Where(m => m.IsStatic);
-        foreach (var method in x)
+        foreach (var method in extractedMethods)
         {
             var attribute = method.GetCustomAttribute<UserAction>();
             if (attribute == null) continue;
