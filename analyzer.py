@@ -78,7 +78,7 @@ if (__name__ == "__main__"):
     ]
 
     question_labels = [
-        "Q1. Would se frequently",
+        "Q1. Would use frequently",
         "Q2. Is complex",
         "Q3. Is easy to use",
         "Q4. Would need support",
