@@ -19,7 +19,6 @@ def get_results():
                     1 if (susIndex % 2 == 1) else 5 - userAnswer
                 results[susIndex][userAnswer - 1] += 1
             sus_score_per_user *= 2.5
-            print(f'SUS Score for {userIndex}: {sus_score_per_user}')
             sus_score_details.append(sus_score_per_user)
             sus_score += sus_score_per_user
             number_of_users += 1
@@ -51,7 +50,7 @@ def get_chart(results, category_names):
                         label=colname, color=color)
         
     ax.axvline(0, linestyle='--', color='black', alpha=.25)
-    ax.set_xlim(-100, 100)
+    ax.set_xlim(-105, 105)
     ax.set_xticks(np.arange(-100, 101, 10))
     ax.xaxis.set_major_formatter(lambda x, pos: str(abs(int(x))))
     ax.invert_yaxis()
@@ -78,21 +77,20 @@ if (__name__ == "__main__"):
         'Strongly agree'
     ]
 
-    # question_labels = [
-    #     "Frequency of use",
-    #     "Complexity",
-    #     "Easy to use",
-    #     "Need for support",
-    #     "Well integrated",
-    #     "Presence of inconsistencies",
-    #     "Easy to learn",
-    #     "Awkward to use",
-    #     "Confident using the system",
-    #     "Need to learn a lot"
-    # ]
+    question_labels = [
+        "Q1. Would se frequently",
+        "Q2. Is complex",
+        "Q3. Is easy to use",
+        "Q4. Would need support",
+        "Q5. Is well integrated",
+        "Q6. Presence of inconsistencies",
+        "Q7. Would be quick to learn",
+        "Q8. Awkward to use",
+        "Q9. Felt confident",
+        "Q10. Need to learn a lot"
+    ]
+    results = {question_labels[i]: results[i+1] for i in range(0, 10)}
 
-    # results = {question_labels[i]: results[i+1] for i in range(10)}
-    # print(results)
 
     print(f'Average SUS Score: {sus_score}')
     for userIndex, score in enumerate(sus_per_user):
