@@ -89,14 +89,14 @@ if (__name__ == "__main__"):
     sus_category_names = [
         'Strongly disagree',
         'Disagree',
-        'Neither agree nor disagree',
+        'Neither agree nor disagree\t',
         'Agree',
         'Strongly agree'
     ]
     sample_category_names = [
         'No notion',
         'Novice',
-        'Intermediate',
+        'Intermediate\t',
         'Proficient',
         'Expert'
     ]
